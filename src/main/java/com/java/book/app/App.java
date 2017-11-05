@@ -8,29 +8,31 @@ import java.util.Enumeration;
 import java.util.Properties;
 
 /**
- * Mavenのサンプルプログラム。
+ * Mavenのサンプルプログラム.
  */
 public class App {
 
-    /** プロパティファイル */
+    /** プロパティファイル. */
     private static final String PROPERTY_FILE = "/book.properties";
 
     /**
-     * エントリーポイント。
+     * エントリーポイント.
+     *
+     * @param args 引数
      */
-    public static void main(String... args) {
+    public static void main(final String... args) {
         App app = new App();
         Properties properties = app.loadProperties(PROPERTY_FILE);
         app.printProperties(properties);
     }
 
     /**
-     * プロパティファイルを読み込む。
+     * プロパティファイルを読み込む.
      *
      * @param file プロパティファイルのパス
      * @return プロパティオブジェクト
      */
-    protected Properties loadProperties(String file) {
+    protected final Properties loadProperties(final String file) {
         Properties properties = new Properties();
         try (Reader reader = new InputStreamReader(
                 App.class.getResourceAsStream(file), StandardCharsets.UTF_8)) {
@@ -42,11 +44,11 @@ public class App {
     }
 
     /**
-     * プロパティファイルの中身を表示する。
+     * プロパティファイルの中身を表示する.
      *
      * @param properties プロパティオブジェクト
      */
-    protected void printProperties(Properties properties) {
+    protected final void printProperties(final Properties properties) {
         if (properties != null) {
             Enumeration<?> names = properties.propertyNames();
             while (names.hasMoreElements()) {
